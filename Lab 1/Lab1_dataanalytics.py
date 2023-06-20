@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 # In[ ]:
 
 
@@ -79,40 +76,39 @@ print(len(age_list))
 # In[8]:
 
 
-# Determine the maximum value in the data
-max_value = max(age_list)
-print(max_value)
+def age(age_list):
+    age_counts = [0] * 10 # Initialize an empty list with 10 elements as 0
 
+    for age in age_list:
+        age = int(age)  # Convert age to an integer
+        if age <= 9:
+            age_counts[0] += 1
+        elif age <= 19:
+            age_counts[1] += 1
+        elif age <= 29:
+            age_counts[2] += 1
+        elif age <= 39:
+            age_counts[3] += 1
+        elif age <= 49:
+            age_counts[4] += 1
+        elif age <= 59:
+            age_counts[5] += 1
+        elif age <= 69:
+            age_counts[6] += 1
+        elif age <= 79:
+            age_counts[7] += 1
+        elif age <= 89:
+            age_counts[8] += 1
+        else:
+            age_counts[9] += 1
 
-# In[9]:
+    for i in range(len(age_counts)):
+        lower_bound = i * 10
+        upper_bound = (i * 10) + 9
+        histogram_line = f"{lower_bound}-{upper_bound}: {'|' * age_counts[i]} {age_counts[i]}"
+        print(histogram_line)    
 
-
-# Define the scale factor for the histogram
-scale_factor = 4521 / 87  # Scale to fit within 4521 characters
-print(int(scale_factor))
-
-
-# In[ ]:
-
-
-# Print the histogram
-for agelist in age_list:
-    scaled_value = int(agelist * int(scale_factor))  # Scale the value
-    histogram_row = ""
-
-    # Add '#' symbols to the histogram row
-    for u in range(scaled_value):
-        histogram_row += "#"
-        print(histogram_row)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
+age(age_list)
 
 
 
